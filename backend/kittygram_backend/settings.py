@@ -12,11 +12,9 @@ SECRET_KEY = os.getenv(
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    '51.250.38.65',
-    'topolya.sytes.net',
-    'ladygagahasachild.work.gd'
+    host.strip()
+    for host in os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+    if host.strip()
 ]
 
 INSTALLED_APPS = [
